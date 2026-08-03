@@ -13,9 +13,8 @@ app.use(errorMiddleware);
 app.use('/api/diagnoses', diagnosesRouter);
 app.use('/api/patients', patientsRouter);
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
-app.listen(PORT, () => {
-    console.log(`server is running on port ${PORT}`);
-    
+app.listen(Number(PORT), '0.0.0.0', () => {
+  console.log(`Server running on port ${PORT}`);
 });
